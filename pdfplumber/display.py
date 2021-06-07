@@ -41,7 +41,7 @@ def get_page_image(stream, page_no, resolution):
         if img.alpha_channel:
             img.background_color = wand.image.Color("white")
             img.alpha_channel = "remove"
-        with img.convert("png") as png:
+        with img.convert("png8") as png:
             im = PIL.Image.open(BytesIO(png.make_blob()))
             return im.convert("RGB")
 
